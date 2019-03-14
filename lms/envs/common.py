@@ -3128,7 +3128,7 @@ JWT_AUTH = {
     'JWT_LOGIN_CLIENT_ID': 'login-service-client-id',
     'JWT_LOGIN_SERVICE_USERNAME': 'login_service_user',
 
-    'JWT_SUPPORTED_VERSION': '1.1.0',
+    'JWT_SUPPORTED_VERSION': '1.2.0',
 
     'JWT_ALGORITHM': 'HS256',
     'JWT_SECRET_KEY': SECRET_KEY,

@@ -118,10 +118,12 @@ def _create_jwt(
         'filters': filters or [],
         'is_restricted': is_restricted,
         'email_verified': user.is_active,
-        'roles': create_role_auth_claim_for_user(user),
     }
     payload.update(additional_claims or {})
     _update_from_additional_handlers(payload, user, scopes)
+    role_claims = create_role_auth_claim_for_user(user)
+    if role_claims:
+        payload['roles'] = role_claims
     return _encode_and_sign(payload, use_asymmetric_key, secret)
 
 
