@@ -917,7 +917,7 @@ def password_reset_confirm_wrapper(request, uidb36=None, token=None):
             try:
                 updated_user.email = updated_user.account_recovery.secondary_email
                 updated_user.account_recovery.delete()
-                # emit an event that the user changed their primary email to the secondary email
+                # emit an event that the user changed their secondary email to the primary email
                 tracker.emit(
                     SETTING_CHANGE_INITIATED,
                     {
