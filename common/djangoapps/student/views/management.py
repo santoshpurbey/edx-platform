@@ -912,7 +912,6 @@ def password_reset_confirm_wrapper(request, uidb36=None, token=None):
 
         # get the updated user
         updated_user = User.objects.get(id=uid_int)
-        
         if 'is_account_recovery' in request.GET:
             try:
                 updated_user.email = updated_user.account_recovery.secondary_email
@@ -927,8 +926,6 @@ def password_reset_confirm_wrapper(request, uidb36=None, token=None):
                         "user_id": updated_user.id,
                     }
                 )
-
-
             except ObjectDoesNotExist:
                 log.error(
                     'Account recovery process initiated without AccountRecovery instance for user {username}'.format(
